@@ -4,14 +4,21 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "clinic": "clinic doctor --stop-delay 5 --on-port 'autocannon http://localhost:3000 -d 60' -- node .output/server/index.mjs",
+    "clinic:prep": "nuxt build && npm run clinic",
     "dev": "nuxt dev",
+    "dev:inspect": "nuxt build && node --inspect --expose-gc .output/server/index.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.9.0",
-    "vue": "^3.4.3",
-    "vue-router": "^4.2.5"
+    "nuxt": "^3.7.4",
+    "vite-plugin-vuetify": "^1.0.2",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.0.0"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47"
   }
 }
